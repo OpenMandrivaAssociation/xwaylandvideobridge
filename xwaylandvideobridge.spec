@@ -14,25 +14,26 @@ Source0:        https://download.kde.org/stable/%{name}/%{name}-%{version}.tar.x
 BuildRequires:  appstream-util
 BuildRequires:  cmake >= 3.16
 BuildRequires:  ninja
-BuildRequires:  extra-cmake-modules >= %{kf5_minver}
-BuildRequires:  cmake(Qt5Quick) >= %{qt5_minver}
-BuildRequires:  cmake(Qt5DBus) >= %{qt5_minver}
-BuildRequires:  cmake(Qt5X11Extras) >= %{qt5_minver}
-BuildRequires:  cmake(KF5CoreAddons) >= %{kf5_minver}
-BuildRequires:  cmake(KF5I18n) >= %{kf5_minver}
-BuildRequires:  cmake(KF5WindowSystem) >= %{kf5_minver}
-BuildRequires:  cmake(KF5Notifications) >= %{kf5_minver}
+BuildRequires:  cmake(Qt6)
+BuildRequires:  extra-cmake-modules
+BuildRequires:  cmake(Qt6Quick)
+BuildRequires:  cmake(Qt6DBus)
+#BuildRequires:  cmake(Qt5X11Extras)
+BuildRequires:  cmake(KF6CoreAddons)
+BuildRequires:  cmake(KF6I18n)
+BuildRequires:  cmake(KF6WindowSystem)
+BuildRequires:  cmake(KF6Notifications)
 BuildRequires:  pkgconfig(xcb)
 BuildRequires:  pkgconfig(xcb-composite)
 BuildRequires:  pkgconfig(xcb-event)
 BuildRequires:  pkgconfig(xcb-record)
 BuildRequires:  pkgconfig(xcb-xfixes)
-BuildRequires:  cmake(KPipeWire) >= %{kp5_minver}
+BuildRequires:  cmake(KPipeWire) >= = 5.27.80
  
 Requires:       hicolor-icon-theme
  
 # Requires at least KPipeWire 5.27.5
-Requires:       kpipewire%{?_isa} >= %{kp5_minver}
+Requires:      %{_lib}KPipeWire-plasma6 >= = 5.27.80
  
 %description
 By design, X11 applications can't access window or screen contents
