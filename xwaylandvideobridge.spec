@@ -28,12 +28,12 @@ BuildRequires:  pkgconfig(xcb-composite)
 BuildRequires:  pkgconfig(xcb-event)
 BuildRequires:  pkgconfig(xcb-record)
 BuildRequires:  pkgconfig(xcb-xfixes)
-BuildRequires:  cmake(KPipeWire) >= = 5.27.80
+BuildRequires:  cmake(KPipeWire) >= 5.27.80
  
 Requires:       hicolor-icon-theme
  
 # Requires at least KPipeWire 5.27.5
-Requires:      %{_lib}KPipeWire-plasma6 >= = 5.27.80
+Requires:      %{_lib}KPipeWire-plasma6 >= 5.27.80
  
 %description
 By design, X11 applications can't access window or screen contents
