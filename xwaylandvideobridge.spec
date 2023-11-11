@@ -47,7 +47,7 @@ but within the control of the user at all times.
 %autosetup -n %{name}-%{version}
  
 %build
-%cmake_ -GNinja
+%cmake -GNinja
 %make_build
  
 %install
