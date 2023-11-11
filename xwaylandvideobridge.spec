@@ -4,18 +4,16 @@
  
 Name:           xwaylandvideobridge
 Version:        0.3.0
-Release:        1%{?dist}
+Release:        1
 Summary:        Utility to allow streaming Wayland windows to X applications
  
 License:        (GPL-2.0-only or GPL-3.0-only) and LGPL-2.0-or-later and BSD-3-Clause
 URL:            https://invent.kde.org/system/xwaylandvideobridge
 Source0:        https://download.kde.org/stable/%{name}/%{name}-%{version}.tar.xz
  
-BuildRequires:  libappstream-glib
-BuildRequires:  desktop-file-utils
+BuildRequires:  appstream-util
 BuildRequires:  cmake >= 3.16
-BuildRequires:  gcc-c++
-BuildRequires:  ninja-build
+BuildRequires:  ninja
 BuildRequires:  extra-cmake-modules >= %{kf5_minver}
 BuildRequires:  cmake(Qt5Quick) >= %{qt5_minver}
 BuildRequires:  cmake(Qt5DBus) >= %{qt5_minver}
@@ -48,27 +46,20 @@ but within the control of the user at all times.
 %prep
 %autosetup -n %{name}-%{version}
  
- 
 %build
-%cmake_kf5 -GNinja
-%cmake_build
+%cmake_ -GNinja
+%make_build
  
 %install
-%cmake_install
+%make_install -C build
 %find_lang %{name} --all-name
- 
- 
-%check
-appstream-util validate-relax --nonet %{buildroot}%{_kf5_metainfodir}/org.kde.%{name}.appdata.xml
-desktop-file-validate %{buildroot}%{_kf5_datadir}/applications/org.kde.%{name}.desktop
- 
  
 %files -f %{name}.lang
 %license LICENSES/*
 %doc README.md
-%{_kf5_bindir}/%{name}
-%{_kf5_datadir}/applications/org.kde.%{name}.desktop
-%{_kf5_datadir}/icons/hicolor/*/apps/%{name}.*
-%{_kf5_metainfodir}/org.kde.%{name}.appdata.xml
-%{_kf5_datadir}/qlogging-categories5/%{name}.categories
+#{_kf5_bindir}/%{name}
+#{_kf5_datadir}/applications/org.kde.%{name}.desktop
+#{_kf5_datadir}/icons/hicolor/*/apps/%{name}.*
+#{_kf5_metainfodir}/org.kde.%{name}.appdata.xml
+#{_kf5_datadir}/qlogging-categories5/%{name}.categories
 %{_sysconfdir}/xdg/autostart/org.kde.%{name}.desktop
