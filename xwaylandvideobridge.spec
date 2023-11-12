@@ -10,12 +10,14 @@ Summary:        Utility to allow streaming Wayland windows to X applications
 License:        (GPL-2.0-only or GPL-3.0-only) and LGPL-2.0-or-later and BSD-3-Clause
 URL:            https://invent.kde.org/system/xwaylandvideobridge
 Source0:        https://download.kde.org/stable/%{name}/%{name}-%{version}.tar.xz
- 
+
+BuildRequires:  appstream
 BuildRequires:  appstream-util
 BuildRequires:  cmake >= 3.16
 BuildRequires:  ninja
 BuildRequires:  cmake(Qt6)
 BuildRequires:  extra-cmake-modules
+BuildRequires:	 cmake(Qt6Core)
 BuildRequires:  cmake(Qt6Quick)
 BuildRequires:  cmake(Qt6DBus)
 #BuildRequires:  cmake(Qt5X11Extras)
@@ -23,6 +25,7 @@ BuildRequires:  cmake(KF6CoreAddons)
 BuildRequires:  cmake(KF6I18n)
 BuildRequires:  cmake(KF6WindowSystem)
 BuildRequires:  cmake(KF6Notifications)
+BuildRequires:  cmake(KF6StatusNotifierItem)
 BuildRequires:  pkgconfig(xcb)
 BuildRequires:  pkgconfig(xcb-composite)
 BuildRequires:  pkgconfig(xcb-event)
@@ -48,7 +51,9 @@ but within the control of the user at all times.
 %autosetup -n %{name}-%{version}
  
 %build
-%cmake -GNinja
+%cmake  \
+        -DBUILD_WITH_QT6:BOOL=ON \
+        -GNinja
 %make_build
  
 %install
