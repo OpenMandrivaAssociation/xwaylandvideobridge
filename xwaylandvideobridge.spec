@@ -32,7 +32,7 @@ BuildRequires:  pkgconfig(xcb-event)
 BuildRequires:  pkgconfig(xcb-record)
 BuildRequires:  pkgconfig(xcb-xfixes)
 BuildRequires:  cmake(KPipeWire) >= 5.27.80
-BuildRequires:  pkgconfig(pipewire-0.3)
+BuildRequires:  pkgconfig(libpipewire-0.3)
  
 Requires:       hicolor-icon-theme
  
