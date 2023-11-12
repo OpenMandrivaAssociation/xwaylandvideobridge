@@ -55,10 +55,10 @@ but within the control of the user at all times.
 %cmake  \
         -DBUILD_WITH_QT6:BOOL=ON \
         -GNinja
-%make_build
+%ninja_build
  
 %install
-%make_install -C build
+%ninja_install -C build
 %find_lang %{name} --all-name
  
 %files -f %{name}.lang
