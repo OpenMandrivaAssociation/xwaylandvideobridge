@@ -1,7 +1,3 @@
-%global qt5_minver 5.15.0
-%global kf5_minver 5.83.0
-%global kp5_minver 5.27.5
- 
 Name:           xwaylandvideobridge
 Version:        0.3.0
 Release:        1
@@ -20,7 +16,6 @@ BuildRequires:  extra-cmake-modules
 BuildRequires:	 cmake(Qt6Core)
 BuildRequires:  cmake(Qt6Quick)
 BuildRequires:  cmake(Qt6DBus)
-#BuildRequires:  cmake(Qt5X11Extras)
 BuildRequires:  cmake(KF6CoreAddons)
 BuildRequires:  cmake(KF6I18n)
 BuildRequires:  cmake(KF6WindowSystem)
@@ -38,7 +33,7 @@ Requires:       hicolor-icon-theme
  
 # Requires at least KPipeWire 5.27.5
 Requires:      %{_lib}KPipeWire-plasma6 >= 5.27.80
- 
+
 %description
 By design, X11 applications can't access window or screen contents
 for wayland clients. This is fine in principle, but it breaks screen
@@ -64,9 +59,9 @@ but within the control of the user at all times.
 %files -f %{name}.lang
 %license LICENSES/*
 %doc README.md
-#{_kf5_bindir}/%{name}
-#{_kf5_datadir}/applications/org.kde.%{name}.desktop
-#{_kf5_datadir}/icons/hicolor/*/apps/%{name}.*
-#{_kf5_metainfodir}/org.kde.%{name}.appdata.xml
-#{_kf5_datadir}/qlogging-categories5/%{name}.categories
+%{_bindir}/xwaylandvideobridge
+%{_datadir}/applications/org.kde.xwaylandvideobridge.desktop
+%{_datadir}/metainfo/org.kde.xwaylandvideobridge.appdata.xml
+%{_datadir}/qlogging-categories6/xwaylandvideobridge.categories
 %{_sysconfdir}/xdg/autostart/org.kde.%{name}.desktop
+%{_iconsdir}/hicolor/scalable/apps/xwaylandvideobridge.svg
