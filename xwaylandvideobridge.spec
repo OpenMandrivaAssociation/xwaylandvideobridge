@@ -1,6 +1,6 @@
 Name:           xwaylandvideobridge
-Version:        0.4.0
-Release:        2
+Version:        0.5.1
+Release:        1
 Summary:        Utility to allow streaming Wayland windows to X applications
  
 License:        (GPL-2.0-only or GPL-3.0-only) and LGPL-2.0-or-later and BSD-3-Clause
@@ -13,10 +13,11 @@ BuildRequires:  cmake >= 3.16
 BuildRequires:  ninja
 BuildRequires:  cmake(Qt6)
 BuildRequires:  extra-cmake-modules
-BuildRequires:	 cmake(Qt6Core)
+BuildRequires:	cmake(Qt6Core)
 BuildRequires:  cmake(Qt6Quick)
 BuildRequires:  cmake(Qt6DBus)
 BuildRequires:  cmake(KF6CoreAddons)
+BuildRequires:	cmake(KF6Crash)
 BuildRequires:  cmake(KF6I18n)
 BuildRequires:  cmake(KF6WindowSystem)
 BuildRequires:  cmake(KF6Notifications)
@@ -32,7 +33,7 @@ BuildRequires:  pkgconfig(libpipewire-0.3)
 Requires:       hicolor-icon-theme
  
 # Requires at least KPipeWire 5.27.5
-Requires:      %{_lib}KPipeWire-plasma6 >= 5.27.80
+Requires:      %{_lib}KPipeWire >= 6.7.0
 
 %description
 By design, X11 applications can't access window or screen contents
@@ -64,4 +65,4 @@ but within the control of the user at all times.
 %{_datadir}/metainfo/org.kde.xwaylandvideobridge.appdata.xml
 %{_datadir}/qlogging-categories6/xwaylandvideobridge.categories
 %{_sysconfdir}/xdg/autostart/org.kde.%{name}.desktop
-%{_iconsdir}/hicolor/scalable/apps/xwaylandvideobridge.svg
+%{_iconsdir}//hicolor/scalable/apps/org.kde.xwaylandvideobridge.svg
