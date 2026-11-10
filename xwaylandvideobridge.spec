@@ -1,5 +1,5 @@
 Name:           xwaylandvideobridge
-Version:        0.5.1
+Version:        0.5.3
 Release:        1
 Summary:        Utility to allow streaming Wayland windows to X applications
  
